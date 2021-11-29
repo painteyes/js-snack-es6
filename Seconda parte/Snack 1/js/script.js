@@ -17,7 +17,7 @@ const max = 4;
 const newArray = [];
 
 myArray.forEach((element, index, array) => {
-    (index >= min & index <= max) ? newArray.push(element): false;
+    (index >= min && index <= max) ? newArray.push(element): null;
 })
 
 // console.log(newArray);
