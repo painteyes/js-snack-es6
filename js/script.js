@@ -5,7 +5,6 @@
 
 // Creare un array di oggetti
     // Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso
-
 const objectsArray = [
     {
         nome: 'Rockrider',
@@ -21,26 +20,31 @@ const objectsArray = [
     },
     {
         nome: 'Riverside',
-        peso: 9,
+        peso: 5,
     }
 ];
 
-// Stampare a schermo la bici con peso minore utilizzando destructuring e template literal nel DOM
+// CORREZIONE ----------------------------
+let lightBike = objectsArray[0];
 
-    // Destructuring
-const [rockrider, discovery, alpina, riverside] = objectsArray;
+for (let i = 0; i < objectsArray.length; i++ ) {
 
-    // Extracting properties from the object
-let txt = "";
+    const thisBike = objectsArray[i];
 
-for (let key in rockrider) {
-  txt += rockrider[key] + " ";
+    if (thisBike.peso < lightBike.peso) {
+        lightBike = thisBike;
+    }
 }
 
-    // Appending the object to the DOM
+// Destructuring
+const {nome, peso} = lightBike;
+// ---------------------------------------
+
+// Appending the object to the DOM
 const mainContainer = document.getElementById('container');  
 
-mainContainer.innerHTML += `<div><h2>${txt}</h2></div>`;
+// Stampare a schermo la bici con peso minore utilizzando destructuring e template literal nel DOM
+mainContainer.innerHTML += `<div><h2>La bici più leggera è ${nome} e pesa ${peso} kg</h2></div>`;
 
 
 // -------
@@ -50,7 +54,6 @@ mainContainer.innerHTML += `<div><h2>${txt}</h2></div>`;
 // Creare un array di oggetti di squadre di calcio. 
     // Ogni squadra avrà diverse proprietà: nome, punti fatti, falli subiti.
         // Nome sarà l’unica proprietà da compilare, le altre saranno tutte settate a 0.
-
 const teams = [
     {
         nome: 'Milan',
@@ -91,7 +94,6 @@ const teams = [
 
 // Generare numeri random al posto degli 0 nelle proprietà: punti fatti e falli subiti.
     // Infine usando la destrutturazione creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
-
 const teamsCopy = [];
 
 for (let i= 0; i < teams.length; i++) {
@@ -120,7 +122,6 @@ console.log(teamsCopy);
 // ---------
 // Functions
 // ---------
-
 function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
